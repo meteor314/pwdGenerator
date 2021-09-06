@@ -1,3 +1,3 @@
 # pwd-generator
 
-A simple password generator.
+A simple password generator with node.
