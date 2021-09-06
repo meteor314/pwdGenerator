@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pwd Generator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body>
+    <form class="container">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="text" class="form-control" id="pwd" placeholder="Password">
+          <label for="exampleInputPassword1">String Length</label>
+          <input type="number" class="form-control" id="count" placeholder="nombre de caractères" min="6" value="12"  >
+        </div>
+        <input type="button" class="btn btn-primary" id="copy-pwd" value="Copy"  onclick="copy()">
+        
+    </form>
+  <script >
+  
+
+            
+        function randPassword(){
+          var len = parseInt(document.getElementById("count").value);
+          console.log(len);
+
+      var rand_string="aertyuipqdfghjklmwxcvbnARTYUIPQSDFGHJKLMWXCVBN1234567890&é\"'(-_)=^*!!:,~#{[|`^@]}$%/.µ",
+          password='';
+      var ii=0;
+
+      while(ii <=len) { ++ii;
+          password+=rand_string.charAt(Math.floor(Math.random()*rand_string.length));
+          
+      }
+
+
+      password=password.split('');
+      password = password.sort(
+        function(){return Math.random()}).join('');
+        document.getElementById("pwd").value = password;
+
+      return password;
+    }
+
+
+    function copy(){
+
+    var txt =  document.getElementById("pwd");
+    txt.select();
+    document.execCommand("copy");
+    alert("Password copied to clipbord !");
+
+    }
+    setInterval(function(){randPassword()}, 1000);
+            console.log(randPassword()); // 12
+  
+  </script>
+    
+</body>
+</html>
+  
+   
